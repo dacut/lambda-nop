@@ -27,7 +27,7 @@ jobs:
   push:
     runs-on: ubuntu-latest
     needs: build
-    timeout-minutes: 10
+    timeout-minutes: 45
     if: github.repository == 'dacut/lambda-nop'
     environment: build-push
     permissions:
