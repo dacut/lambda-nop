@@ -32,6 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     if: github.repository == 'dacut/lambda-nop'
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
