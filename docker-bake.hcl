@@ -13,7 +13,7 @@ target "al2023-local" {
 target "al2023-runtime" {
     dockerfile = "al2023-build.dockerfile"
     platforms = ["linux/amd64", "linux/arm64"]
-    tags = ["dacut/lambda-nop:al2023"]
+    tags = ["dacut/lambda-nop:al2023", "lambda-nop:latest public.ecr.aws/kanga/lambda-nop:latest"]
     output = ["type=image,push=true"]
     target = "runtime"
 }
