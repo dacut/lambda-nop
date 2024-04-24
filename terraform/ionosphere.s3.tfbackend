@@ -1,0 +1,4 @@
+bucket         = "ionosphere-terraform-state"
+key            = "lambda-nop-test.tfstate"
+region         = "us-west-2"
+dynamodb_table = "TerraformLock"

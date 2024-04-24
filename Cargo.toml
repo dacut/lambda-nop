@@ -7,6 +7,9 @@ license = "Apache-2.0"
 repository = "https://github.com/dacut/lambda-nop.git"
 version = "0.1.0"
 
+[[bin]]
+name = "bootstrap"
+
 [dependencies]
 lambda_runtime = "0.8.3"
 reqwest = { version = "0.11.22", default-features = false, features = ["rustls-tls"] }
