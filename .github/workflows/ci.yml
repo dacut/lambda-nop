@@ -41,7 +41,7 @@ jobs:
       - name: Log in to DockerHub
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_TOKEN }}"
       - name: Log in to ECR public.
-        run: aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/kanga
+        run: docker login --username AWS --password "$(aws ecr-public get-login-password --region us-east-1)"
       - name: Build Container image
         run: |
           docker buildx create --platform linux/amd64,linux/arm64 multiplatform
