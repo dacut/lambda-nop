@@ -39,11 +39,11 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::557925715019:role/LambdaNOPGitHubActions
       - name: Log in to DockerHub
-        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_TOKEN }}"
+        run: |
+          echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: Log in to ECR public.
         run: |
-          PASSWORD="$(aws ecr-public get-login-password --region us-east-1)"
-          docker login --username AWS --password "$PASSWORD"
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/kanga
       - name: Build Container image
         run: |
           docker buildx create --platform linux/amd64,linux/arm64 multiplatform
