@@ -1,2 +1,4 @@
 target/
 terraform/
+!target/release/bootstrap
+!target/*/release/bootstrap
